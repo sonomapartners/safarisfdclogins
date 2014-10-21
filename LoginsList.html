@@ -1,36 +1,61 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <script src="jquery-2.1.1.js"></script>
-    <script src="bootstrap-3.2.0-dist/js/bootstrap.js"></script>
-    <link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.css" />
-    <script src="lodash.js"></script>
-    <script src="LoginList.js"></script>
-    <style type="text/css">
+<head>
+  <script src="jquery-2.1.1.js"></script>
+  <script src="bootstrap-3.2.0-dist/js/bootstrap.js"></script>
+  <link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.css"/>
+  <script src="lodash.js"></script>
+  <script src="LoginList.js"></script>
+  <style type="text/css">
     body {
       background-color: white;
       margin: 5px;
     }
-    </style>
-  </head>
-  <body>
-    <div class="page-header">
-      <h3>Logins <small>for Safari</small></h3>
+  </style>
+</head>
+<body class="container">
+<div class="page-header">
+  <h3 class="text-center">Logins <small>for Safari</small></h3>
+</div>
+
+<div id="loginsListWrapper">
+  <div id="loginsList">
+  </div>
+
+  <a href="#" class="btn btn-primary btn-lg btn-block" id="addLogin">Add Login</a>
+</div>
+
+<div id="newLoginWrapper" style="display: none;">
+  <div id="newLogin">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Group" name="group" id="newLoginGroup">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Username" name="username" id="newLoginUsername">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Password" name="password" id="newLoginPassword">
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="org-type" value="production">
+        Production
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="org-type" value="sandbox">
+        Sandbox
+      </label>
     </div>
 
-    <div id="loginsListWrapper">
-      <a href="#" id="addLogin">Add Login</a>
-
-      <div id="loginsList">
-        <p>Temp</p>
-      </div>
+    <div class="form-group">
+      <textarea class="form-control" rows="3" name="description" id="newLoginDescription" placeholder="Description"></textarea>
     </div>
+  </div>
 
-    <div id="newLoginWrapper" style="display: none;">
-      <a href="#" id="saveLogin">Save</a>
-      <div id="newLogin">
-        <p>Other Temp</p>
-      </div>
-    </div>
-  </body>
+  <a href="#" class="btn btn-primary btn-lg btn-block" id="saveLogin">Save</a>
+  <a href="#" class="btn btn-default btn-lg btn-block" id="cancelLogin">Cancel</a>
+</div>
+</body>
 </html>
