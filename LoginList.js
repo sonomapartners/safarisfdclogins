@@ -23,28 +23,9 @@ function buildLoginsList () {
       loginsTable.append(loginRow);
     });
     return starterDiv;
-    // return _.reduce(curGroup["logins"], function (result, curLogin, curLoginIndex) {
-    //   // var tempDiv = $('<div />').append('<p />', { text : curLogin["userName"] });
-    //   // var temp = result.add($('<div />').append('<p />').text(curLogin["userName"]));
-    //   // console.log(temp);
-    //   // return temp;
-    //   return result.append('<tr></tr>', {
-    //     text : curLogin["userName"]
-    //   });
-    // }, loginsTable);
-    // var groupTitle = groupDiv.append($('<h3 />', {
-    //   text : "" + curGroup["groupName"] + " at index : " + curGroupIndex
-    // }).effect('highlight'));
-    // _.forEach(curGroup["logins"], function (curLogin, curLoginIndex) {
-    //   groupDiv.append($('<div />', {
-    //     text : "" + curLogin["userName"] + " " + curLogin["description"] + " at index : " + curLoginIndex
-    //   }));
-    // });
-    // return groupDiv;
   });
 
   var loginsList = $('#loginsList');
-  // loginsList.accordion();
   loginsList.empty();
   _.forEach(accountDivs, function (curDiv) {
     loginsList.append(curDiv);
