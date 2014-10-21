@@ -1,5 +1,20 @@
-<h1>Hello, World!</h1>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="jquery-2.1.1.js"></script>
+    <script type="text/javascript">
+      safari.application.addEventListener("popover", popoverHandler, true);
 
-<script>
-	safari.application.addEventListener("popover", popoverHandler, true);
-</script>
+      function popoverHandler () {
+        const theGlobal = safari.extension.globalPage.contentWindow.amonshizGlobal;
+        console.log(theGlobal.getAccounts());        
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Hello, World!</h1>
+
+    <div id="loginsList">
+    </div>
+  </body>
+</html>
