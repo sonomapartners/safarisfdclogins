@@ -1,29 +1,46 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <script src="jquery-2.1.1.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
-    <script>
-      var amonshizGlobal = {
-        getAccounts : function () {
-          return [{
-            groupName : "Sonoma Partners",
-            logins : [{
-              userName : "test@test.com",
-              password : "password",
-              description : "just a dummy login"
-            }]
-          }, {
-            groupName : "Somone Else",
-            logins : [{
-              userName : "test2@test.com",
-              password : "password",
-              description : "more testing stuff"
-            }]
-          }];
-        }
-      };
-    </script>
-  </head>
-  <body></body>
+<head>
+  <script src="jquery-2.1.1.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+  <script>
+    var amonshizGlobal = {
+      getAccounts: function () {
+        return [{
+            groupName: "NuView",
+            logins: [
+              {
+                userName: "nuview@midlandira.com.sandbox",
+                password: "Midland2012",
+                type: 'sandbox',
+                description: "NuView sandbox"
+              },
+              {
+                userName: "nuview@midlandira.com",
+                password: "Midland2012",
+                type: 'production',
+                description: "NuView production"
+              }
+            ]
+          },
+          {
+            groupName: "Somone Else",
+            logins: [
+              {
+                userName: "test2@test.com",
+                password: "password",
+                description: "more testing stuff"
+              }
+            ]
+          }
+        ];
+      },
+      orgTypes : {
+        'production' : 'login',
+        'sandbox' : 'test'
+      }
+    };
+  </script>
+</head>
+<body></body>
 </html>
