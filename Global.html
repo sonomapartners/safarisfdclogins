@@ -6,7 +6,21 @@
     <script>
       var amonshizGlobal = {
         getAccounts : function () {
-          return [1,2,3,4,5];
+          return [{
+            groupName : "Sonoma Partners",
+            logins : [{
+              userName : "test@test.com",
+              password : "password",
+              description : "just a dummy login"
+            }]
+          }, {
+            groupName : "Somone Else",
+            logins : [{
+              userName : "test2@test.com",
+              password : "password",
+              description : "more testing stuff"
+            }]
+          }];
         }
       };
     </script>
