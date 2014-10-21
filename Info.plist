@@ -20,6 +20,8 @@
 	<dict>
 		<key>Database Quota</key>
 		<real>5242880</real>
+		<key>Global Page</key>
+		<string>Global.html</string>
 		<key>Popovers</key>
 		<array>
 			<dict>
