@@ -5,7 +5,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
   <script>
     var amonshizGlobal = {
-      getAccounts: function () {
+      getGroups: function () {
         return [{
             groupName: "NuView",
             logins: [
@@ -34,6 +34,23 @@
             ]
           }
         ];
+      },
+      addAccount : function (account, groupName) {
+        var groups = self.getGroups();
+        var group = _.find(groups, function (curGroup) {
+          if (groupName === null) {
+            return curGroup.groupName === 'Uncategorized';
+          } else {
+            return curGroup.groupName === groupName;
+          }
+        });
+        group.logins.push(account);
+        self.persistAccounts();
+      },
+      persistAccounts : function () {
+        try {
+          localStorage.groups = groups;
+        }
       },
       orgTypes : {
         'production' : 'login',
