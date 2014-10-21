@@ -10,19 +10,25 @@ function buildLoginsList () {
     var loginsTable = $('<table></table>', {
       class : "table"
     });
-    var starterDiv = $('<div></div>', {
-      class : "panel panel-default"
-    }).append($('<div></div>', {
-      class : "panel-heading",
-      text: curGroup["groupName"]
-    }).add(loginsTable));
     _.forEach(curGroup["logins"], function (curLogin, curLoginIndex) {
       var loginRow = $('<tr></tr>').append($('<td></td>', {
         text : curLogin["userName"]
-      }));
+      })).append($('<td></td>').append($('<a></a>', {
+          text : 'Login',
+          href : '#',
+          click : function (event) {
+            event.preventDefault();
+            safari.application.activeBrowserWindow.openTab().url = 'https://' + theGlobal.orgTypes[curLogin.type] + '.salesforce.com/?un=' + curLogin.userName + '&pw=' + curLogin.password;
+          }
+      })));
       loginsTable.append(loginRow);
     });
-    return starterDiv;
+    return $('<div></div>', {
+      class : "panel panel-default"
+    }).append($('<div></div>', {
+      class : "panel-heading",
+      text : curGroup["groupName"]
+    }).add(loginsTable));
   });
 
   var loginsList = $('#loginsList');
