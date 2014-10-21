@@ -1,77 +1,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <script>
-    var amonshizGlobal = {
-      getGroups: function () {
-        var groups = localStorage.groups;
-        if (groups === null || groups === undefined) {
-          return [];
-        }
-        return JSON.parse(groups);
-//        return [{
-//            groupName: "NuView",
-//            logins: [
-//              {
-//                userName: "nuview@midlandira.com.sandbox",
-//                password: "Midland2012",
-//                type: 'sandbox',
-//                description: "NuView sandbox"
-//              },
-//              {
-//                userName: "nuview@midlandira.com",
-//                password: "Midland2012",
-//                type: 'production',
-//                description: "NuView production"
-//              }
-//            ]
-//          },
-//          {
-//            groupName: "Somone Else",
-//            logins: [
-//              {
-//                userName: "test2@test.com",
-//                password: "password",
-//                description: "more testing stuff"
-//              }
-//            ]
-//          }
-//        ];
-      },
-      addAccount : function (account, groupName) {
-        var groups = self.getGroups();
-        var group = _.find(groups, function (curGroup) {
-          if (groupName === null) {
-            return curGroup.groupName === 'Uncategorized';
-          } else {
-            return curGroup.groupName === groupName;
-          }
-        });
-        if (group === null) {
-          group = {
-            groupName: "Uncategorized",
-            logins:[]
-          };
-          groups.push(group);
-        }
-        group.logins.push(account);
-        self.persistGroups(groups);
-      },
-      persistGroups : function (groups) {
-        try {
-          localStorage.groups = JSON.stringify(groups);
-        } catch (e) {
-          if (e === QUOTA_EXCEEDED_ERR) {
-            alert('You\'ve run out of space to store logins!');
-          }
-        }
-      },
-      orgTypes : {
-        'production' : 'login',
-        'sandbox' : 'test'
-      }
-    };
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+  <script src="Global.js"></script>
 </head>
 <body></body>
 </html>
