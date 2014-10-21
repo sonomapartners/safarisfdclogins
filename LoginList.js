@@ -37,3 +37,16 @@ function buildLoginsList () {
     loginsList.append(curDiv);
   });
 }
+
+$(document).ready( function () {
+  $('#addLogin').click( function (event) {
+    event.preventDefault();
+    $('#loginsListWrapper').hide();
+    $('#newLoginWrapper').show();
+  });
+  $('#saveLogin').click( function (event) {
+    event.preventDefault();
+    $('#loginsListWrapper').show();
+    $('#newLoginWrapper').hide();
+  });
+})
