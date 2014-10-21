@@ -5,7 +5,7 @@
     var amonshizGlobal = {
       getGroups: function () {
         var groups = localStorage.groups;
-        if (groups === null) {
+        if (groups === null || groups === undefined) {
           return [];
         }
         return JSON.parse(groups);
