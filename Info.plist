@@ -28,11 +28,11 @@
 				<key>Filename</key>
 				<string>LoginsList.html</string>
 				<key>Height</key>
-				<real>400</real>
+				<real>500</real>
 				<key>Identifier</key>
 				<string>LoginsList</string>
 				<key>Width</key>
-				<real>300</real>
+				<real>500</real>
 			</dict>
 		</array>
 		<key>Toolbar Items</key>
