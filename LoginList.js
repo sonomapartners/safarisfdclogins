@@ -6,7 +6,7 @@ function popoverHandler () {
 }
 
 function buildLoginsList () {
-  var accountDivs = _.map(theGlobal.getAccounts(), function (curGroup, curGroupIndex) {
+  var groupDivs = _.map(theGlobal.getGroups(), function (curGroup, curGroupIndex) {
     var loginsTable = $('<table></table>', {
       class : "table"
     });
@@ -33,7 +33,7 @@ function buildLoginsList () {
 
   var loginsList = $('#loginsList');
   loginsList.empty();
-  _.forEach(accountDivs, function (curDiv) {
+  _.forEach(groupDivs, function (curDiv) {
     loginsList.append(curDiv);
   });
 }
