@@ -1,7 +1,8 @@
 safari.application.addEventListener("popover", popoverHandler, true);
-const theGlobal = safari.extension.globalPage.contentWindow.amonshizGlobal;
+var theGlobal;
 
 function popoverHandler() {
+  theGlobal = safari.extension.globalPage.contentWindow.amonshizGlobal;
   showLoginsList();
 }
 
@@ -15,11 +16,22 @@ function buildLoginsList() {
           text: curLogin["userName"]
         })).append($('<td></td>').append($('<a></a>', {
           text: 'Login',
+          'data-toggle': 'tooltip',
+          'data-placement': 'left',
+          title: curLogin.description,
           class: 'btn btn-primary btn-sm',
           href: '#',
           click: function (event) {
             event.preventDefault();
             safari.application.activeBrowserWindow.openTab().url = 'https://' + theGlobal.orgTypes[curLogin.type] + '.salesforce.com/?un=' + curLogin.userName + '&pw=' + curLogin.password;
+          }
+        }).tooltip())).append($('<td></td>').append($('<a></a>', {
+          text: 'Edit',
+          class: 'btn btn-default btn-sm',
+          href: '#',
+          click: function (event) {
+            event.preventDefault();
+            editLogin(curLogin, curGroup.groupName);
           }
         }))).append($('<td></td>').append($('<a></a>', {
           text: 'Delete',
@@ -53,7 +65,7 @@ function saveNewLogin() {
   account['userName'] = $('#newLoginUsername').val();
   account['password'] = $('#newLoginPassword').val();
   account['type'] = $("input[name=\"org-type\"]:checked").val();
-  account['description'] = 'Just some description text because.';
+  account['description'] = $('#newLoginDescription').val();
   var groupName = $('#newLoginGroup').val();
   theGlobal.addAccount(account, (groupName === undefined || groupName === '') ? 'Uncategorized' : groupName);
 }
@@ -67,6 +79,15 @@ function showLoginsList() {
 function showNewLogin() {
   $('#loginsListWrapper').hide();
   $('#newLoginWrapper').show();
+}
+
+function editLogin(login, groupName) {
+  $('#newLoginUsername').val(login.userName);
+  $('#newLoginPassword').val(login.password);
+  $('#newLoginDescription').val(login.description);
+  $('#newLoginGroup').val(groupName);
+  $("input[value=\"" + login.type + "\"]").prop('checked', 'checked');
+  showNewLogin();
 }
 
 $(document).ready(function () {
