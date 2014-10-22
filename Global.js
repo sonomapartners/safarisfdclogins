@@ -10,6 +10,7 @@ var amonshizGlobal = {
     return JSON.parse(groups);
   },
   addAccount : function (account, groupName) {
+    this.deleteAccount(account);
     var groups = this.getGroups();
     var groupNameToFind = (groupName === '' || groupName === null || groupName === undefined) ? 'Uncategorized' : groupName;
     var group = _.find(groups, function (curGroup) {
@@ -28,9 +29,19 @@ var amonshizGlobal = {
   deleteAccount : function (account) {
     var groups = this.getGroups();
     var group = _.find(groups, function (curGroup) {
-      return _.find(curGroup.logins, account) !== undefined;
+      return _.find(curGroup.logins, {
+        userName: account.userName,
+        password: account.password
+      }) !== undefined;
     });
-    var logins = _.remove(group.logins, account);
+    if (group === undefined) {
+      return;
+    }
+
+    var logins = _.remove(group.logins, {
+      userName: account.userName,
+      password: account.password
+    });
     if (group.logins.length === 0) {
       _.remove(groups, group);
     }
