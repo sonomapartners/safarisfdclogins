@@ -1,6 +1,3 @@
-safarisfdclogins
-================
-
 # Safari Salesforce Logins
 
 This plugin provides Safari users with a simple interface to quickly log in to any of their Salesforce orgs.
