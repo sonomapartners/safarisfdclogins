@@ -1,4 +1,3 @@
-safari.application.addEventListener("popover", popoverHandler, true);
 var theGlobal;
 
 function popoverHandler() {
