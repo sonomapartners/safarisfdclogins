@@ -1,7 +1,7 @@
 /**
  * Created by amonshizadeh on 10/21/14.
  */
-var amonshizGlobal = {
+var sonomaGlobal = {
   getGroups: function () {
     var groups = localStorage.groups;
     if (groups === null || groups === undefined) {

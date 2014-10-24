@@ -2,7 +2,7 @@ safari.application.addEventListener("popover", popoverHandler, true);
 var theGlobal;
 
 function popoverHandler() {
-  theGlobal = safari.extension.globalPage.contentWindow.amonshizGlobal;
+  theGlobal = safari.extension.globalPage.contentWindow.sonomaGlobal;
   showLoginsList();
 }
 
