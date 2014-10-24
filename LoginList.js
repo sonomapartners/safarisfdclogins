@@ -12,45 +12,59 @@ function buildLoginsList() {
       class: "table"
     });
     _.forEach(curGroup["logins"], function (curLogin, curLoginIndex) {
-      var loginRow = $('<tr></tr>').append($('<td></td>', {
+      var loginRow = $('<tr></tr>')
+        .append($('<td></td>', {
+          class: 'login-name-column',
           text: curLogin["userName"]
-        })).append($('<td></td>').append($('<a></a>', {
-          text: 'Login',
-          'data-toggle': 'tooltip',
-          'data-placement': 'left',
-          title: curLogin.description,
-          class: 'btn btn-primary btn-sm',
-          href: '#',
-          click: function (event) {
-            event.preventDefault();
-            safari.application.activeBrowserWindow.openTab().url = 'https://' + theGlobal.orgTypes[curLogin.type] + '.salesforce.com/?un=' + curLogin.userName + '&pw=' + curLogin.password;
-          }
-        }).tooltip())).append($('<td></td>').append($('<a></a>', {
-          text: 'Edit',
-          class: 'btn btn-default btn-sm',
-          href: '#',
-          click: function (event) {
-            event.preventDefault();
-            editLogin(curLogin, curGroup.groupName);
-          }
-        }))).append($('<td></td>').append($('<a></a>', {
-          text: 'Delete',
-          class: 'btn btn-default btn-sm',
-          href: '#',
-          click: function (evvent) {
-            event.preventDefault();
-            theGlobal.deleteAccount(curLogin);
-            showLoginsList();
-          }
-        })));
+        }))
+        .append($('<td></td>', {
+          class: 'login-button-column'
+        })
+          .append($('<a></a>', {
+            text: 'Login',
+            'data-toggle': 'tooltip',
+            title: curLogin.description,
+            class: 'btn btn-primary btn-sm',
+            href: '#',
+            click: function (event) {
+              event.preventDefault();
+              safari.application.activeBrowserWindow.openTab().url = 'https://' + theGlobal.orgTypes[curLogin.type] + '.salesforce.com/?un=' + curLogin.userName + '&pw=' + curLogin.password;
+            }
+          })
+          )
+          .append($('<a></a>', {
+            text: 'Edit',
+            class: 'btn btn-default btn-sm',
+            href: '#',
+            click: function (event) {
+              event.preventDefault();
+              editLogin(curLogin, curGroup.groupName);
+            }
+          })
+          )
+          .append($('<a></a>', {
+            text: 'Delete',
+            class: 'btn btn-default btn-sm',
+            href: '#',
+            click: function (evvent) {
+              event.preventDefault();
+              theGlobal.deleteAccount(curLogin);
+              showLoginsList();
+            }
+          })
+          )
+        );
       loginsTable.append(loginRow);
     });
     return $('<div></div>', {
       class: "panel panel-default"
-    }).append($('<div></div>', {
+    })
+      .append($('<div></div>', {
         class: "panel-heading",
         text: curGroup["groupName"]
-      }).add(loginsTable));
+      })
+        .add(loginsTable)
+      );
   });
 
   var loginsList = $('#loginsList');
