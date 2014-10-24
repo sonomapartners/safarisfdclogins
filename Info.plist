@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>Author</key>
-	<string>Andrew Monshizadeh</string>
+	<string>Sonoma Partners</string>
 	<key>Builder Version</key>
 	<string>10600.1.25</string>
 	<key>CFBundleDisplayName</key>
 	<string>SalesforceLogins</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.amonshiz.SalesforceLogins</string>
+	<string>com.sonomapartners.SalesforceLogins</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
