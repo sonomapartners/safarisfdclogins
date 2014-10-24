@@ -3,7 +3,7 @@
  */
 var sonomaGlobal = {
   getGroups: function () {
-    var groups = localStorage.groups;
+    var groups = safari.extension.secureSettings.getItem('groups');
     if (groups === null || groups === undefined) {
       return [];
     }
@@ -49,7 +49,7 @@ var sonomaGlobal = {
   },
   persistGroups : function (groups) {
     try {
-      localStorage.groups = JSON.stringify(groups);
+      safari.extension.secureSettings.setItem('groups', JSON.stringify(groups));
     } catch (e) {
       if (e === QUOTA_EXCEEDED_ERR) {
         alert('You\'ve run out of space to store logins!');
