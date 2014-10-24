@@ -1,6 +1,6 @@
 # Safari Salesforce Logins
 
-This plugin provides Safari users with a simple interface to quickly log in to any of their Salesforce orgs.
+This extension provides Safari users with a simple interface to quickly log in to any of their Salesforce orgs.
 
 ## Installing the plugin
 1.  Enable development mode within Safari (Preferences -> Advanced -> Show Develop menu in menu bar)
@@ -10,7 +10,7 @@ This plugin provides Safari users with a simple interface to quickly log in to a
 5.  You may need to add the extension’s button to the Safari toolbar (right click/control+click near the back/forward buttons, select `Customize Toolbar` and add the button from there).
 
 ## Using the plugin
-1.  Click the plugin’s toolbar button.  It should have a Salesforce like cloud icon.
+1.  Click the extension’s toolbar button.  It should have a Salesforce like cloud icon.
 2.  Click the `Add Login` button.
 3.  Fill in the information.  Group and description are not required.  The username, password, and org type are.
 4.  Click the `Save` button.
