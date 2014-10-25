@@ -81,8 +81,6 @@ function saveNewLogin() {
   account['description'] = $('#newLoginDescription').val();
   var groupName = $('#newLoginGroup').val();
   theGlobal.addAccount(account, (groupName === undefined || groupName === '') ? 'Uncategorized' : groupName);
-
-  clearLoginForm();
 }
 
 function clearLoginForm() {
