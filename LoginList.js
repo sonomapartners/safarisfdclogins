@@ -81,6 +81,16 @@ function saveNewLogin() {
   account['description'] = $('#newLoginDescription').val();
   var groupName = $('#newLoginGroup').val();
   theGlobal.addAccount(account, (groupName === undefined || groupName === '') ? 'Uncategorized' : groupName);
+
+  clearLoginForm();
+}
+
+function clearLoginForm() {
+  $('#newLoginUsername').val('');
+  $('#newLoginPassword').val('');
+  $("input[name=\"org-type\"]:checked").val(false);
+  $('#newLoginDescription').val('');
+  $('#newLoginGroup').val('');
 }
 
 function showLoginsList() {
@@ -115,6 +125,7 @@ $(document).ready(function () {
   });
   $('#cancelLogin').click(function (event) {
     event.preventDefault();
+    clearLoginForm();
     showLoginsList();
   })
 })
