@@ -3,11 +3,13 @@
 This extension provides Safari users with a simple interface to quickly log in to any of their Salesforce orgs.
 
 ## Installing the plugin
-1.  Enable development mode within Safari (Preferences -> Advanced -> Show Develop menu in menu bar)
-2.  Open Safari’s Extension Builder (Develop menu -> Show Extension Builder)
-3.  Add the extension folder by clicking the `+` on the bottom left of Extension Builder and select the directory for this repo.
-4.  Click `Install` in the top right of Extension Builder.
-5.  You may need to add the extension’s button to the Safari toolbar (right click/control+click near the back/forward buttons, select `Customize Toolbar` and add the button from there).
+1.  Ensure your folder name ends in .safariextension (for example, safarisfdclogins.safariextension). This is required in order to select your project to install.
+2.  Enable development mode within Safari (Preferences -> Advanced -> Show Develop menu in menu bar)
+3.  Open Safari’s Extension Builder (Develop menu -> Show Extension Builder)
+4.  Add the extension folder by clicking the `+` on the bottom left of Extension Builder and select the directory for this repo.
+5.  Click the "Add Extension" option and select the folder.
+6.  Click `Install` in the top right of Extension Builder.
+7.  You may need to add the extension’s button to the Safari toolbar (right click/control+click near the back/forward buttons, select `Customize Toolbar` and add the button from there).
 
 ## Using the plugin
 1.  Click the extension’s toolbar button.  It should have a Salesforce like cloud icon.
