@@ -27,7 +27,7 @@ function buildLoginsList() {
             href: '#',
             click: function (event) {
               event.preventDefault();
-              safari.application.activeBrowserWindow.openTab().url = 'https://' + theGlobal.orgTypes[curLogin.type] + '.salesforce.com/?un=' + curLogin.userName + '&pw=' + curLogin.password;
+              safari.application.activeBrowserWindow.openTab().url = 'https://' + theGlobal.orgTypes[curLogin.type] + '.salesforce.com/?un=' + encodeURIComponent(curLogin.userName) + '&pw=' + encodeURIComponent(curLogin.password);
             }
           })
           )
